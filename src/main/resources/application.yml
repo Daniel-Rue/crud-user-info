@@ -6,6 +6,26 @@ spring:
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB
+file:
+  storage:
+    directory: user-photos
+server:
+  error:
+    include-message: always
+
+jwt:
+  secret: "2a07e1b4a9f9c17e415c517d21c3997500120091702ae6814277dd50d1b8f6f5"
+  expiration: 3600000
+
+security:
+  admin:
+    username: admin
+    password: admin
+    role: ADMIN
