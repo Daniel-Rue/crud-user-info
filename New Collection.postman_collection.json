@@ -1,0 +1,206 @@
+{
+	"info": {
+		"_postman_id": "6df9c1b0-f69e-4eed-ad33-d42c88404cfa",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "42821447"
+	},
+	"item": [
+		{
+			"name": "Авторизация",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"admin\",\r\n  \"password\": \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/auth/login"
+			},
+			"response": []
+		},
+		{
+			"name": "Все пользователи",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0MTI5MTQ2MywiZXhwIjoxNzQxMjk1MDYzfQ.tPfvBzFyMp9aHN2dkrbb1Xul9NR_jKC5G69iwbAInUOFssyo__aZj4y7qFmUFZHLxfElK6nqwjdGTFo4hK68Ow"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/users"
+			},
+			"response": []
+		},
+		{
+			"name": "Полная информация по пользователю",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": ""
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/users/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Контактная информация",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": ""
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/users/1/contact"
+			},
+			"response": []
+		},
+		{
+			"name": "Создания пользователя",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": ""
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"lastName\": \"Иванов\",\r\n    \"firstName\": \"Иван\",\r\n    \"patronymic\": \"Иванович\",\r\n    \"birthDate\": \"1999-03-01\",\r\n    \"email\": \"ivanov@gmail.com\",\r\n    \"phoneNumber\": \"+7 (321) 322-45-31\"\r\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/users"
+			},
+			"response": []
+		},
+		{
+			"name": "Изменить пользователя",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": ""
+					}
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"Василий\"\r\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/users/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Удалить пользователя",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": ""
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8080/users/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Загрузить фото",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": ""
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "postman-cloud:///1eff9046-563f-4610-a81f-540a012a08a0"
+						}
+					]
+				},
+				"url": "http://localhost:8080/users/1/photo"
+			},
+			"response": []
+		},
+		{
+			"name": "Получить фото",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": ""
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/users/1/photo"
+			},
+			"response": []
+		},
+		{
+			"name": "Удалить фото",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": ""
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8080/users/1/photo"
+			},
+			"response": []
+		}
+	]
+}
